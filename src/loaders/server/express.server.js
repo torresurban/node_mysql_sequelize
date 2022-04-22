@@ -9,6 +9,7 @@ class ExpressServer {
     constructor(){
         this.app = express();
         this.port = config.port;
+        this.basePathAuth = `${config.api.prefix}/auth`;
         this.basePathUser = `${config.api.prefix}/users`;
 
         this._middlewares();
@@ -45,6 +46,7 @@ class ExpressServer {
             })
         })
 
+        this.app.use(this.basePathAuth, require('../../routes/auth.routes'));
         this.app.use(this.basePathUser, require('../../routes/users.routes')); 
     }
 
@@ -72,7 +74,8 @@ class ExpressServer {
             const body ={
                 error: {
                     code,
-                    message: err.message
+                    message: err.message,
+                    detail: err.data
                 }
             }
             res.json(body);

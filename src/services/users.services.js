@@ -5,17 +5,17 @@ const findById = async (id) => {
     return await repositorio.findById(id)
 }
 
-// const findByEmail = async (email) => {
-//     return await repositorio.findByEmail(email)
-// }
-
-// const findAll = async () => {
-//     return await repositorio.findAll()
-// }
+const findByEmail = async (email) => {
+    return await repositorio.findByEmail(email)
+}
 
 const findAll = async (filter, options) => {
-    return await repositorio.findAllWithPagination(filter, options)
+    return await repositorio.findAll()
 }
+
+// const findAll = async (filter, options) => {
+//     return await repositorio.findAllWithPagination(filter, options)
+// }
 
 const save = async (user) => {
     return await repositorio.save(user)
@@ -31,7 +31,7 @@ const remove = async (id) => {
 
 module.exports = {
     findById,
-    //findByEmail,
+    findByEmail,
     findAll,
     save,
     update,
