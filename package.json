@@ -20,6 +20,8 @@
     "mongoose-paginate-v2": "^1.6.3",
     "mongoose-unique-validator": "^3.0.0",
     "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0",
     "swagger-ui-express": "^4.3.0",
     "winston": "^3.7.2"
   }
