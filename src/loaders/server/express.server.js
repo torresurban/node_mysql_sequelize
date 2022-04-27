@@ -11,6 +11,8 @@ class ExpressServer {
         this.port = config.port;
         this.basePathAuth = `${config.api.prefix}/auth`;
         this.basePathUser = `${config.api.prefix}/users`;
+        this.basePathCharacter = `${config.api.prefix}/characters`;
+        this.basePathMovie = `${config.api.prefix}/movies`;
 
         this._middlewares();
 
@@ -47,7 +49,9 @@ class ExpressServer {
         })
 
         this.app.use(this.basePathAuth, require('../../routes/auth.routes'));
-        this.app.use(this.basePathUser, require('../../routes/users.routes')); 
+        this.app.use(this.basePathUser, require('../../routes/users.routes'));
+        this.app.use(this.basePathCharacter, require('../../routes/characters.routes'));
+        this.app.use(this.basePathMovie, require('../../routes/movies.routes'));
     }
 
     //estamos armando nuestro propio middleware de error

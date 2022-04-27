@@ -12,3 +12,9 @@ const ContentType = sequelize.define('ContentType', {
 })
 
 module.exports = ContentType;
+
+ContentType.hasMany(require('./movies.models'), {
+    as: 'movies',
+    foreignKey: 'contentTypeId',
+    
+})

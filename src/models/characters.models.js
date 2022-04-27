@@ -27,3 +27,11 @@ const Character = sequelize.define('Character', {
 });
 
 module.exports = Character;
+
+
+//muchos a muchos
+Character.belongsToMany(require('./movies.models'), {
+    through: 'charactersMovies',
+    as: 'movies',
+    foreignKey: 'characterId'
+})

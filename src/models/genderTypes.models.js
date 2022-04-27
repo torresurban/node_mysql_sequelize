@@ -12,3 +12,12 @@ const GenderType = sequelize.define('GenderType', {
 })
 
 module.exports = GenderType;
+
+//const Movie = require('./movies.models');
+
+GenderType.hasMany(require('./movies.models'), {
+    //as: 'movie',
+    foreignKey: 'genderTypeId',
+    sourceKey: 'id'
+})
+
